@@ -13,86 +13,65 @@
         }
 
         :root {
-            --bg-color: #f8fafd;
-            --card-bg: #ffffff;
-            --accent-primary: #00f2ff;
-            --accent-secondary: #00ff9d;
-            --text-main: #2d3436;
-            --text-dim: #636e72;
-            --border-ui: #dfe6e9;
+            --bg-color: #ffffff;
+            --main-blue: #0070f3;
+            --text-dark: #111111;
+            --text-gray: #444444;
+            --border: #eaeaea;
             --font-main: 'OSans', sans-serif;
-            --font-mono: 'Fira Code', monospace;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
             background-color: var(--bg-color);
-            background-image: 
-                linear-gradient(rgba(0, 242, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 242, 255, 0.04) 1px, transparent 1px);
-            background-size: 50px 50px;
-            color: var(--text-main);
+            color: var(--text-dark);
             font-family: var(--font-main);
-            font-size: 16px; 
             line-height: 1.6;
+            font-size: 18px; /* Large, readable font */
         }
 
-        /* --- Full Screen Lightbox --- */
+        /* Full Screen Image View */
         #lightbox {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(255, 255, 255, 0.98);
             display: none; justify-content: center; align-items: center;
             z-index: 9999; cursor: zoom-out;
-            backdrop-filter: blur(15px);
         }
-        #lightbox img { 
-            max-width: 90%; max-height: 90%; 
-            border: 4px solid var(--accent-primary); 
-            box-shadow: 0 15px 50px rgba(0, 242, 255, 0.2); 
-        }
+        #lightbox img { max-width: 90%; max-height: 90%; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-radius: 12px; }
 
-        /* --- Navigation --- */
+        /* Navigation */
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-ui); padding: 20px 0;
+            position: sticky; top: 0; background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
+            padding: 20px 0; z-index: 100;
         }
-        .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; padding: 0 40px; }
-        .nav-link {
-            color: var(--text-dim); text-decoration: none; font-weight: bold;
-            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+        .nav-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; padding: 0 20px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; margin-left: 30px; }
+
+        /* Hero */
+        #hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #fafafa; }
+        .profile-img { 
+            width: 200px; height: 200px; border-radius: 50%; 
+            margin-bottom: 30px; border: 5px solid #fff; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer;
         }
-        .nav-link:hover { color: var(--accent-primary); }
+        h1 { font-size: 4.5rem; letter-spacing: -2px; margin-bottom: 10px; }
+        .tagline { font-size: 1.5rem; color: var(--text-gray); margin-bottom: 40px; }
+        .btn { background: var(--main-blue); color: #fff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.2s; }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
-        /* --- Hero --- */
-        #hero { height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #fff; border-bottom: 5px solid var(--accent-primary); }
-        .profile-wrap {
-            width: 220px; height: 220px; border: 3px solid var(--border-ui);
-            padding: 10px; background: #fff; margin-bottom: 2rem; border-radius: 10px;
-        }
-        .profile-wrap img { width: 100%; height: 100%; object-fit: contain; }
+        /* Content Sections */
+        section { padding: 120px 20px; max-width: 900px; margin: 0 auto; }
+        h2 { font-size: 2.5rem; margin-bottom: 40px; border-left: 6px solid var(--main-blue); padding-left: 20px; }
+        p { margin-bottom: 20px; color: var(--text-gray); }
 
-        .hero-title { font-size: 5rem; font-weight: 800; color: #000; margin-bottom: 10px; letter-spacing: -2px; }
-        .hero-tagline { color: var(--text-dim); font-size: 1.2rem; font-weight: 400; }
+        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        .card { padding: 40px; background: #fff; border: 1px solid var(--border); border-radius: 12px; transition: 0.3s; }
+        .card:hover { border-color: var(--main-blue); }
+        .card img { width: 100%; border-radius: 8px; margin-top: 20px; cursor: pointer; }
 
-        /* --- Content Layout --- */
-        section { padding: 180px 40px; max-width: 1200px; margin: 0 auto; }
-        .intro-card { background: #fff; border: 1px solid var(--border-ui); border-left: 8px solid var(--accent-primary); padding: 5rem; box-shadow: 20px 20px 60px rgba(0,0,0,0.03); border-radius: 4px; }
-        
-        h2 { font-size: 2.5rem; margin-bottom: 3rem; color: #000; font-weight: 800; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; }
-        .card { padding: 3.5rem; background: #fff; border: 1px solid var(--border-ui); border-radius: 12px; transition: 0.4s; }
-        .card:hover { border-color: var(--accent-primary); transform: translateY(-10px); }
-        
-        .spec-label { font-family: var(--font-mono); color: #16a34a; font-size: 1rem; font-weight: bold; margin-bottom: 1rem; display: block; }
-        .spec-img { width: 100%; border: 1px solid #eee; margin-top: 2rem; border-radius: 8px; cursor: pointer; }
-
-        .dl-button { display: inline-block; margin-top: 3rem; background: #000; color: #fff; text-decoration: none; padding: 18px 45px; font-weight: bold; border-radius: 5px; transition: 0.3s; }
-        .dl-button:hover { background: var(--accent-primary); color: #000; }
-
-        footer { padding: 120px 40px; text-align: center; background: #fff; border-top: 1px solid var(--border-ui); }
+        footer { text-align: center; padding: 100px 0; border-top: 1px solid var(--border); color: var(--text-gray); }
     </style>
 </head>
 <body>
@@ -103,95 +82,71 @@
 
     <nav>
         <div class="nav-content">
-            <div style="font-weight: 900; letter-spacing: 2px;">VIAAN_LAB</div>
-            <div style="display: flex; gap: 30px;">
-                <a href="#hero" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#hardware" class="nav-link">Hardware</a>
-                <a href="#projects" class="nav-link">Projects</a>
+            <div style="font-weight: 800; font-size: 1.2rem;">VIAAN THAKUR</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#hardware">My Setup</a>
+                <a href="#projects">Projects</a>
             </div>
         </div>
     </nav>
 
     <header id="hero">
-        <div class="profile-wrap" onclick="openLightbox('image.png')">
-            <img src="image.png" alt="Viaan Thakur">
-        </div>
-        <h1 class="hero-title">Viaan Thakur</h1>
-        <p class="hero-tagline">8th Grade Student // Android Developer // System Specialist</p>
-        <a href="https://drive.google.com/drive/u/0/folders/1pdqYankhwyaxu8Gs-tObbpPcOxZadaf9" class="dl-button">Access Project Drive</a>
+        <img src="image.png" alt="Viaan Thakur" class="profile-img" onclick="openLightbox('image.png')">
+        <h1>Viaan Thakur</h1>
+        <p class="tagline">8th Grade Student // Android Developer // Tech Enthusiast</p>
+        <a href="https://drive.google.com/drive/u/0/folders/1pdqYankhwyaxu8Gs-tObbpPcOxZadaf9" class="btn">View My Project Drive</a>
     </header>
 
-    <section id="about" data-reveal>
+    <section id="about">
         <h2>About Me</h2>
-        <div class="intro-card">
-            <p style="font-size: 1.4rem; color: var(--text-dim);">
-                I am a student currently in the **8th standard**. I focus on optimizing software for mobile devices, specifically the **OnePlus Nord CE 3 Lite**. My passion lies in building and porting Android operating systems directly from their source code.
-            </p>
-        </div>
+        <p>I am a student in the <strong>8th standard</strong>. I spend my time learning how to make mobile phones work better. Specifically, I work with the <strong>OnePlus Nord CE 3 Lite</strong>.</p>
+        <p>Instead of just using apps, I enjoy building the entire Android operating system from the ground up using source code.</p>
     </section>
 
-    <section id="hardware" data-reveal>
-        <h2>Hardware Setup</h2>
-        <div class="grid">
+    <section id="hardware">
+        <h2>My Computer Setup</h2>
+        <p>I use two different systems to build my projects and test software.</p>
+        <div class="card-grid">
             <div class="card">
-                <span class="spec-label">Desktop Build Station</span>
-                <p><strong>OS:</strong> CachyOS x86_64<br>
-                <strong>Hardware:</strong> i3-10100 @ 4.3GHz<br>
-                <strong>Graphics:</strong> RTX 3060</p>
-                <img src="pc.png" class="spec-img" onclick="openLightbox('pc.png')">
+                <h3>Desktop Build Station</h3>
+                <p>This is where I build my Android projects. It runs <strong>CachyOS</strong> and has an <strong>Intel i3</strong> processor with an <strong>RTX 3060</strong> graphics card.</p>
+                <img src="pc.png" onclick="openLightbox('pc.png')">
             </div>
             <div class="card">
-                <span class="spec-label">Mobile Laptop Lab</span>
-                <p><strong>OS:</strong> Windows 11 Home<br>
-                <strong>Device:</strong> HP Laptop 15-da1xxx<br>
-                <strong>Hardware:</strong> i5-8265U</p>
-                <img src="laptop.png" class="spec-img" onclick="openLightbox('laptop.png')">
+                <h3>Mobile Laptop Lab</h3>
+                <p>I use this <strong>HP Laptop</strong> for testing and troubleshooting while on the move. It runs <strong>Windows 11</strong>.</p>
+                <img src="laptop.png" onclick="openLightbox('laptop.png')">
             </div>
         </div>
     </section>
 
-    <section id="projects" data-reveal>
-        <h2>Current Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>AxionAOSP</h3>
-                <p style="margin-top: 1rem;">A clean, high-performance Android port built for stability on the larry hardware.</p>
-            </div>
-            <div class="card">
-                <h3>EvolutionX</h3>
-                <p style="margin-top: 1rem;">Bringing a feature-rich, customized experience to the OnePlus Nord series.</p>
-            </div>
+    <section id="projects">
+        <h2>What I'm Working On</h2>
+        <div class="card">
+            <h3>Custom Android Software (ROMs)</h3>
+            <p>I am currently porting projects like <strong>AxionAOSP</strong> and <strong>EvolutionX</strong> to my device. This means I am making new, faster versions of Android that people can install on their phones to get a better experience.</p>
         </div>
     </section>
 
     <footer>
-        <p style="font-weight: bold; letter-spacing: 4px;">VIAAN THAKUR // 2026</p>
-        <div style="margin-top: 20px;">
-            <a href="https://github.com/ViaanLarryROMS" style="color: var(--accent-primary); margin: 0 10px;">GitHub Larry</a>
-            <a href="https://github.com/VIAAN96" style="color: var(--accent-primary); margin: 0 10px;">GitHub Main</a>
+        <p>&copy; 2026 Viaan Thakur</p>
+        <div style="margin-top: 15px;">
+            <a href="https://github.com/ViaanLarryROMS" style="color: var(--main-blue); margin: 0 10px;">GitHub Projects</a>
+            <a href="https://github.com/VIAAN96" style="color: var(--main-blue); margin: 0 10px;">Main Profile</a>
         </div>
     </footer>
 
     <script>
         function openLightbox(src) {
-            const lb = document.getElementById('lightbox');
             document.getElementById('lightbox-img').src = src;
-            lb.style.display = 'flex';
+            document.getElementById('lightbox').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
         function closeLightbox() {
             document.getElementById('lightbox').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-        const obs = new IntersectionObserver((e) => {
-            e.forEach(entry => { if (entry.isIntersecting) entry.target.style.opacity = 1; });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('[data-reveal]').forEach((el) => {
-            el.style.opacity = 0;
-            el.style.transition = 'opacity 1s ease-out';
-            obs.observe(el);
-        });
     </script>
 </body>
 </html>
