@@ -28,7 +28,7 @@
             color: var(--text-dark);
             font-family: var(--font-main);
             line-height: 1.6;
-            font-size: 18px; /* Large, readable font */
+            font-size: 18px;
         }
 
         /* Full Screen Image View */
@@ -62,16 +62,19 @@
         .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
         /* Content Sections */
-        section { padding: 120px 20px; max-width: 900px; margin: 0 auto; }
+        section { padding: 100px 20px; max-width: 1100px; margin: 0 auto; }
         h2 { font-size: 2.5rem; margin-bottom: 40px; border-left: 6px solid var(--main-blue); padding-left: 20px; }
         p { margin-bottom: 20px; color: var(--text-gray); }
 
-        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
-        .card { padding: 40px; background: #fff; border: 1px solid var(--border); border-radius: 12px; transition: 0.3s; }
-        .card:hover { border-color: var(--main-blue); }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { padding: 30px; background: #fff; border: 1px solid var(--border); border-radius: 12px; transition: 0.3s; }
+        .card:hover { border-color: var(--main-blue); transform: translateY(-5px); }
         .card img { width: 100%; border-radius: 8px; margin-top: 20px; cursor: pointer; }
 
-        footer { text-align: center; padding: 100px 0; border-top: 1px solid var(--border); color: var(--text-gray); }
+        .project-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .project-list li { background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; }
+
+        footer { text-align: center; padding: 80px 0; border-top: 1px solid var(--border); color: var(--text-gray); }
     </style>
 </head>
 <body>
@@ -85,8 +88,9 @@
             <div style="font-weight: 800; font-size: 1.2rem;">VIAAN THAKUR</div>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#hardware">My Setup</a>
+                <a href="#hardware">Setup</a>
                 <a href="#projects">Projects</a>
+                <a href="#recoveries">Recoveries</a>
             </div>
         </div>
     </nav>
@@ -100,32 +104,64 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>I am a student in the <strong>8th standard</strong>. I spend my time learning how to make mobile phones work better. Specifically, I work with the <strong>OnePlus Nord CE 3 Lite</strong>.</p>
-        <p>Instead of just using apps, I enjoy building the entire Android operating system from the ground up using source code.</p>
+        <p>I am a student currently in the <strong>8th standard</strong>. I am passionate about mobile technology and software development.</p>
+        <p>Specifically, I focus on the <strong>OnePlus Nord CE 3 Lite</strong> (codename: larry). I enjoy the challenge of building custom Android environments from source code to improve the user experience.</p>
     </section>
 
     <section id="hardware">
         <h2>My Computer Setup</h2>
-        <p>I use two different systems to build my projects and test software.</p>
+        <p>I use these systems to build and test my Android projects.</p>
         <div class="card-grid">
             <div class="card">
                 <h3>Desktop Build Station</h3>
-                <p>This is where I build my Android projects. It runs <strong>CachyOS</strong> and has an <strong>Intel i3</strong> processor with an <strong>RTX 3060</strong> graphics card.</p>
+                <p>Running <strong>CachyOS</strong> with an <strong>Intel i3-10100</strong> and <strong>RTX 3060</strong>. This is my primary machine for compiling source code.</p>
                 <img src="pc.png" onclick="openLightbox('pc.png')">
             </div>
             <div class="card">
                 <h3>Mobile Laptop Lab</h3>
-                <p>I use this <strong>HP Laptop</strong> for testing and troubleshooting while on the move. It runs <strong>Windows 11</strong>.</p>
+                <p>An <strong>HP Laptop</strong> running <strong>Windows 11</strong>. I use this for troubleshooting and light development tasks.</p>
                 <img src="laptop.png" onclick="openLightbox('laptop.png')">
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2>What I'm Working On</h2>
-        <div class="card">
-            <h3>Custom Android Software (ROMs)</h3>
-            <p>I am currently porting projects like <strong>AxionAOSP</strong> and <strong>EvolutionX</strong> to my device. This means I am making new, faster versions of Android that people can install on their phones to get a better experience.</p>
+        <h2>Custom ROM Projects</h2>
+        <p>These are the Android operating systems I have worked on or ported to the larry platform:</p>
+        <ul class="project-list">
+            <li>Project MistOS</li>
+            <li>EvolutionX</li>
+            <li>LunarisAOSP</li>
+            <li>Project Matrixx</li>
+            <li>AxionAOSP</li>
+            <li>Project InfinityX</li>
+            <li>crDroid</li>
+            <li>OrionOS</li>
+            <li>DerpFest-AOSP</li>
+            <li>AlphaDroid</li>
+        </ul>
+    </section>
+
+    <section id="recoveries">
+        <h2>Custom Recoveries</h2>
+        <p>Specialized software used for installing ROMs and managing phone partitions:</p>
+        <div class="card-grid">
+            <div class="card">
+                <h3>1. Pitch Black Recovery Project (PBRP)</h3>
+                <p>A feature-rich recovery based on TWRP with a focus on design and utility.</p>
+            </div>
+            <div class="card">
+                <h3>2. Team Win Recovery Project (TWRP)</h3>
+                <p>The industry standard for custom recoveries, allowing for full backups and easy flashing.</p>
+            </div>
+            <div class="card">
+                <h3>3. OrangeFox Recovery (Ofox)</h3>
+                <p>Known for its clean UI and built-in tools for maintaining system integrity.</p>
+            </div>
+            <div class="card">
+                <h3>4. SkyHawk Recovery Project (SHRP)</h3>
+                <p>A modern recovery focused on a rich UI and a seamless user experience.</p>
+            </div>
         </div>
     </section>
 
