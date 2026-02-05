@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaan Thakur | System Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #020204;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --accent-color: #00f2ff;
+            --accent-glow: rgba(0, 242, 255, 0.4);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --font-main: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(0, 122, 223, 0.05) 0%, transparent 25%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(2, 2, 4, 0.9); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px 0;
+        }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 40px; }
+        .nav-link {
+            color: var(--text-secondary); text-decoration: none; font-family: var(--font-mono);
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; transition: var(--transition);
+        }
+        .nav-link:hover { color: var(--accent-color); text-shadow: 0 0 10px var(--accent-glow); }
+
+        /* --- Hero Area --- */
+        #hero { height: 115vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .profile-container {
+            width: 260px; height: 260px; border-radius: 50%; margin-bottom: 2.5rem;
+            border: 2px solid var(--accent-color); box-shadow: 0 0 60px var(--accent-glow);
+            overflow: hidden; background: #000;
+        }
+        .profile-container img { width: 100%; height: 100%; object-fit: contain; filter: contrast(1.1) brightness(1.1); }
+        
+        .hero-title { font-family: var(--font-mono); font-size: clamp(3rem, 12vw, 8rem); letter-spacing: -6px; margin-bottom: 1rem; }
+        .hero-tagline { font-family: var(--font-mono); color: var(--text-secondary); font-size: 1.1rem; letter-spacing: 6px; text-transform: uppercase; }
+
+        .main-dl-btn {
+            margin-top: 3.5rem; display: inline-block; padding: 22px 65px;
+            background: var(--accent-color); color: #000; text-decoration: none;
+            font-family: var(--font-mono); font-weight: 700; border-radius: 12px;
+            box-shadow: 0 0 40px var(--accent-glow); transition: var(--transition);
+        }
+        .main-dl-btn:hover { transform: translateY(-5px); box-shadow: 0 0 65px var(--accent-color); }
+
+        /* --- Layout --- */
+        section { padding: 280px 50px; max-width: 1400px; margin: 0 auto; }
+        .glass-card {
+            background: var(--card-bg); backdrop-filter: blur(35px);
+            border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 40px; padding: 8rem;
+        }
+        .section-tag { font-family: var(--font-mono); color: var(--accent-color); letter-spacing: 4px; font-size: 0.8rem; margin-bottom: 1.5rem; opacity: 0.6; }
+        h2 { font-family: var(--font-mono); font-size: 3rem; margin-bottom: 5rem; display: flex; align-items: center; }
+        h2::after { content: ""; height: 1px; flex-grow: 1; background: linear-gradient(to right, var(--accent-glow), transparent); margin-left: 30px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; }
+        .card {
+            padding: 4rem; background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 32px; transition: var(--transition);
+        }
+        .card:hover { transform: translateY(-20px); border-color: var(--accent-color); box-shadow: 0 40px 80px -40px var(--accent-glow); }
+        
+        .console-style { background: #000 !important; border-color: #1a1a1a !important; }
+        .mono-text { font-family: var(--font-mono); color: #00ff9d; font-size: 0.9rem; line-height: 1.8; margin-bottom: 2rem; }
+        
+        .mini-dl {
+            font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-color);
+            text-decoration: none; border: 1px solid var(--accent-color); padding: 8px 15px;
+            border-radius: 4px; transition: 0.3s;
+        }
+        .mini-dl:hover { background: var(--accent-color); color: #000; box-shadow: 0 0 15px var(--accent-glow); }
+
+        /* --- Footer --- */
+        .footer-lab { text-align: center; padding: 150px 0; background: #000; border-top: 1px solid #111; }
+        .gh-btn {
+            display: inline-block; padding: 15px 40px; border: 1px solid var(--accent-color);
+            color: var(--accent-color); text-decoration: none; font-family: var(--font-mono);
+            border-radius: 4px; margin: 15px; transition: 0.3s;
+        }
+        .gh-btn:hover { background: var(--accent-color); color: #000; box-shadow: 0 0 30px var(--accent-glow); }
+
+        [data-reveal] { opacity: 0; transform: translateY(120px); transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal].visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            section { padding: 180px 25px; }
+            .hero-title { font-size: 4rem; }
+            .glass-card { padding: 4rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-content">
+            <a href="#hero" class="nav-link">System_Start</a>
+            <a href="#about" class="nav-link">Identity</a>
+            <a href="#hardware" class="nav-link">Matrix</a>
+            <a href="#projects" class="nav-link">Port_Lab</a>
+            <a href="#contact" class="nav-link">Access</a>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="profile-container">
+            <img src="image.png" alt="Viaan Thakur Profile Silhouette">
+        </div>
+        <h1 class="hero-title"><span class="gradient-text">VIAAN THAKUR</span></h1>
+        <p class="hero-tagline">8th Grade Learner // System Architect // ROM Porter</p>
+        <a href="https://drive.google.com/drive/u/0/folders/1pdqYankhwyaxu8Gs-tObbpPcOxZadaf9" class="main-dl-btn">DOWNLOAD RELEASES</a>
+    </header>
+
+    <section id="about" data-reveal>
+        <div class="section-tag">/IDENTITY_LOG</div>
+        <h2>01. Identity</h2>
+        <div class="glass-card">
+            <p style="font-size: 1.6rem; color: var(--text-secondary); max-width: 950px;">
+                I am an 8th-standard student currently mastering system-level software for the <span class="highlight">OnePlus Nord CE 3 Lite</span> (larry). While others navigate the surface of technology, I dive into the source code to unlock true hardware potential.
+            </p>
+        </div>
+    </section>
+
+    <section id="hardware" data-reveal>
+        <div class="section-tag">/HARDWARE_MATRIX</div>
+        <h2>02. Environment Specs</h2>
+        <div class="grid">
+            <div class="card console-style">
+                <h3 class="highlight" style="font-family: var(--font-mono); margin-bottom: 1.5rem;">CachyOS Station</h3>
+                <p class="mono-text">
+                    CPU: Intel i3-10100 (8) @ 4.300GHz<br>
+                    GPU: NVIDIA GeForce RTX 3060<br>
+                    Host: Gigabyte H410M S2 V2<br>
+                    Kernel: 6.13.7-2-cachyos<br>
+                    RAM: 15893MiB Total
+                </p>
+                <a href="pc.png" download="pc_specs.png" class="mini-dl">DOWNLOAD_PC_LOG.PNG</a>
+            </div>
+            <div class="card console-style">
+                <h3 class="highlight" style="font-family: var(--font-mono); margin-bottom: 1.5rem;">Mobile Lab</h3>
+                <p class="mono-text">
+                    OS: Windows 11 Home (25H2)<br>
+                    Host: HP Laptop 15-da1xxx<br>
+                    CPU: Intel Core i5-8265U (8) @ 1.80GHz<br>
+                    GPU: Intel UHD Graphics 620<br>
+                    Battery: 93% Health
+                </p>
+                <a href="laptop.png" download="laptop_specs.png" class="mini-dl">DOWNLOAD_LAPTOP_LOG.PNG</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" data-reveal>
+        <div class="section-tag">/PORT_PROJECTS</div>
+        <h2>03. Source Port Lab</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>AxionAOSP</h3>
+                <p style="color: var(--text-secondary);">Minimal and stable source-based port optimized for performance on <span class="highlight">larry</span>.</p>
+            </div>
+            <div class="card">
+                <h3>EvolutionX</h3>
+                <p style="color: var(--text-secondary);">Full source-built port for the Nord series, integrating advanced features with core stability.</p>
+            </div>
+            <div class="card">
+                <h3>LunarisAOSP</h3>
+                <p style="color: var(--text-secondary);">High-performance clean source optimization for hardware interaction on the <span class="highlight">larry</span> platform.</p>
+            </div>
+            <div class="card">
+                <h3>Project-MistOS</h3>
+                <p style="color: var(--text-secondary);">Porting unique UI elements directly from source to the Nord CE 3 Lite hardware.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" data-reveal>
+        <div class="footer-lab">
+            <h2 style="justify-content: center; margin-bottom: 3rem;">Access the Lab</h2>
+            <div class="link-group">
+                <a href="https://github.com/ViaanLarryROMS" class="gh-btn">ViaanLarryROMS</a>
+                <a href="https://github.com/VIAAN96" class="gh-btn">VIAAN96</a>
+            </div>
+            <p style="margin-top: 6rem; font-family: var(--font-mono); opacity: 0.3; letter-spacing: 12px;">
+                VIAAN THAKUR
+            </p>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
