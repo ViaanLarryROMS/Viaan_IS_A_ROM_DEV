@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viaan Thakur | System Architect</title>
     <style>
-        /* IMPORTING YOUR CUSTOM FONT */
         @font-face {
             font-family: 'OSans';
             src: url('OSans-Regular.ttf') format('truetype');
@@ -29,221 +28,187 @@
         html { scroll-behavior: smooth; }
         body {
             background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 30%),
-                radial-gradient(circle at 90% 80%, rgba(0, 122, 223, 0.05) 0%, transparent 30%);
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 30%);
             background-attachment: fixed;
             color: var(--text-primary);
             font-family: var(--font-main);
-            line-height: 1.6;
+            line-height: 1.5;
             overflow-x: hidden;
-            font-size: 13px; /* Global reduction */
+            font-size: 11px; /* Compressed base size */
         }
 
         /* --- Navigation --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(1, 1, 3, 0.9); backdrop-filter: blur(25px);
+            background: rgba(1, 1, 3, 0.9); backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 12px 0;
+            padding: 8px 0;
         }
-        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 25px; }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 20px; }
         .nav-link {
             color: var(--text-secondary); text-decoration: none; font-family: var(--font-mono);
-            font-size: 0.6rem;
-            text-transform: uppercase; letter-spacing: 2px; transition: var(--transition);
+            font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1.5px; transition: var(--transition);
         }
-        .nav-link:hover { color: var(--accent-color); text-shadow: 0 0 10px var(--accent-glow); }
+        .nav-link:hover { color: var(--accent-color); text-shadow: 0 0 8px var(--accent-glow); }
 
-        /* --- Hero Section --- */
-        #hero { height: 110vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        /* --- Hero --- */
+        #hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .profile-container {
-            width: 200px; height: 200px; border-radius: 50%; margin-bottom: 2rem;
-            border: 2px solid var(--accent-color); box-shadow: 0 0 50px var(--accent-glow);
+            width: 160px; height: 160px; border-radius: 50%; margin-bottom: 1.5rem;
+            border: 1.5px solid var(--accent-color); box-shadow: 0 0 40px var(--accent-glow);
             overflow: hidden; background: #000;
         }
-        .profile-container img { width: 100%; height: 100%; object-fit: contain; filter: contrast(1.1) brightness(1.1); }
-        .hero-title { font-family: var(--font-mono); font-size: clamp(2rem, 8vw, 5rem); letter-spacing: -4px; margin-bottom: 0.5rem; }
-        .hero-tagline { font-family: var(--font-mono); color: var(--text-secondary); font-size: 0.75rem; letter-spacing: 5px; text-transform: uppercase; }
+        .profile-container img { width: 100%; height: 100%; object-fit: contain; }
+        .hero-title { font-family: var(--font-mono); font-size: clamp(1.5rem, 6vw, 4rem); letter-spacing: -3px; margin-bottom: 0.3rem; }
+        .hero-tagline { font-family: var(--font-mono); color: var(--text-secondary); font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; }
 
         .main-dl-btn {
-            margin-top: 2.5rem; display: inline-block; padding: 15px 45px;
+            margin-top: 2rem; display: inline-block; padding: 12px 35px;
             background: var(--accent-color); color: #000; text-decoration: none;
-            font-family: var(--font-mono); font-weight: 700; border-radius: 8px;
-            box-shadow: 0 0 30px var(--accent-glow); transition: var(--transition); font-size: 0.75rem;
+            font-family: var(--font-mono); font-weight: 700; border-radius: 4px;
+            box-shadow: 0 0 20px var(--accent-glow); transition: var(--transition); font-size: 0.65rem;
         }
-        .main-dl-btn:hover { transform: translateY(-3px); box-shadow: 0 0 60px var(--accent-color); }
 
-        /* --- Section Mechanics --- */
-        section { padding: 250px 50px; max-width: 1300px; margin: 0 auto; }
+        /* --- Sections --- */
+        section { padding: 150px 40px; max-width: 1200px; margin: 0 auto; }
         .glass-card {
-            background: var(--card-bg); backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 35px; padding: 5rem;
+            background: var(--card-bg); backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 3rem;
         }
-        .section-tag { font-family: var(--font-mono); color: var(--accent-color); letter-spacing: 4px; font-size: 0.65rem; margin-bottom: 1.5rem; opacity: 0.7; }
-        h2 { font-family: var(--font-mono); font-size: 1.8rem; margin-bottom: 3rem; display: flex; align-items: center; }
-        h2::after { content: ""; height: 1px; flex-grow: 1; background: linear-gradient(to right, var(--accent-glow), transparent); margin-left: 25px; }
+        .section-tag { font-family: var(--font-mono); color: var(--accent-color); font-size: 0.55rem; letter-spacing: 3px; margin-bottom: 1rem; opacity: 0.6; }
+        h2 { font-family: var(--font-mono); font-size: 1.4rem; margin-bottom: 2rem; display: flex; align-items: center; }
+        h2::after { content: ""; height: 1px; flex-grow: 1; background: linear-gradient(to right, var(--accent-glow), transparent); margin-left: 20px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
         .card {
-            padding: 2.5rem; background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 25px; transition: var(--transition);
+            padding: 1.8rem; background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 15px; transition: var(--transition);
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent-color); box-shadow: 0 30px 60px -30px var(--accent-glow); }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
         
-        .console-box { background: #000 !important; border-color: #1a1a1a !important; padding: 2rem !important; }
-        .terminal-text { font-family: var(--font-mono); color: #00ff9d; font-size: 0.75rem; line-height: 1.6; margin-bottom: 1.5rem; }
+        .console-box { background: #000 !important; border-color: #1a1a1a !important; padding: 1.5rem !important; }
+        .terminal-text { font-family: var(--font-mono); color: #00ff9d; font-size: 0.65rem; line-height: 1.5; margin-bottom: 1rem; }
 
-        /* Embedded Spec Images */
         .spec-img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 242, 255, 0.2);
-            margin-top: 1rem;
+            width: 100%; height: auto; border-radius: 4px;
+            border: 1px solid rgba(0, 242, 255, 0.15); margin-top: 0.8rem;
         }
 
-        /* --- Typography Tweaks --- */
-        .body-text { font-size: 0.9rem; color: var(--text-secondary); }
-        .small-body { font-size: 0.8rem; color: var(--text-secondary); }
-
-        /* --- Roadmap --- */
-        .roadmap-track { border-left: 1px solid var(--accent-glow); padding: 0 0 60px 30px; position: relative; }
+        /* --- Timeline --- */
+        .roadmap-track { border-left: 1px solid var(--accent-glow); padding: 0 0 40px 20px; position: relative; }
         .roadmap-track::before {
-            content: ""; position: absolute; left: -5.5px; top: 0; width: 10px; height: 10px;
-            border-radius: 50%; background: var(--accent-color); box-shadow: 0 0 10px var(--accent-color);
+            content: ""; position: absolute; left: -4px; top: 0; width: 7px; height: 7px;
+            border-radius: 50%; background: var(--accent-color);
         }
 
         /* --- Footer --- */
-        .footer-terminal { text-align: center; padding: 120px 0; background: #000; border-top: 1px solid #111; }
+        .footer-terminal { text-align: center; padding: 80px 0; background: #000; border-top: 1px solid #111; }
         .gh-btn {
-            display: inline-block; padding: 10px 30px; border: 1px solid var(--accent-color);
+            display: inline-block; padding: 8px 20px; border: 1px solid var(--accent-color);
             color: var(--accent-color); text-decoration: none; font-family: var(--font-mono);
-            border-radius: 4px; margin: 10px; transition: 0.4s; font-size: 0.7rem;
+            border-radius: 3px; margin: 8px; transition: 0.4s; font-size: 0.6rem;
         }
-        .gh-btn:hover { background: var(--accent-color); color: #000; box-shadow: 0 0 25px var(--accent-glow); }
 
-        /* --- Scroll Reveal --- */
-        [data-reveal] { opacity: 0; transform: translateY(80px); transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
         [data-reveal].visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 768px) {
-            section { padding: 120px 20px; }
-            .hero-title { font-size: 2.5rem; }
-            .glass-card { padding: 3rem 1.5rem; }
-        }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="nav-content">
-            <a href="#hero" class="nav-link">System_Root</a>
-            <a href="#about" class="nav-link">Profile</a>
-            <a href="#hardware" class="nav-link">Matrix</a>
-            <a href="#projects" class="nav-link">Port_Lab</a>
-            <a href="#roadmap" class="nav-link">Roadmap_2026</a>
+            <a href="#hero" class="nav-link">Root</a>
+            <a href="#about" class="nav-link">Ident</a>
+            <a href="#hardware" class="nav-link">Specs</a>
+            <a href="#projects" class="nav-link">Ports</a>
+            <a href="#roadmap" class="nav-link">2026</a>
             <a href="#contact" class="nav-link">Access</a>
         </div>
     </nav>
 
     <header id="hero">
         <div class="profile-container">
-            <img src="image.png" alt="Viaan Thakur Silhouette">
+            <img src="image.png" alt="Viaan Thakur">
         </div>
-        <h1 class="hero-title"><span class="glow" style="text-shadow: 0 0 30px var(--accent-glow);">VIAAN THAKUR</span></h1>
+        <h1 class="hero-title"><span style="text-shadow: 0 0 20px var(--accent-glow);">VIAAN THAKUR</span></h1>
         <p class="hero-tagline">8th Grade Learner // System Architect // ROM Porter</p>
         <a href="https://drive.google.com/drive/u/0/folders/1pdqYankhwyaxu8Gs-tObbpPcOxZadaf9" class="main-dl-btn">DOWNLOAD PROJECTS</a>
     </header>
 
     <section id="about" data-reveal>
-        <div class="section-tag">/IDENTITY_LOG</div>
+        <div class="section-tag">/IDENT_LOG</div>
         <h2>01. Identity</h2>
         <div class="glass-card">
-            <p class="body-text" style="max-width: 750px;">
-                I am an 8th-standard student dedicated to mastering system-level software for the <span class="highlight">OnePlus Nord CE 3 Lite</span> (larry). My work is focused on performance optimization and porting custom Android environments directly from source.
+            <p style="color: var(--text-secondary); max-width: 600px;">
+                I am an 8th-standard student mastering system-level software for the <span style="color:var(--accent-color)">OnePlus Nord CE 3 Lite</span> (larry). Focused on performance optimization and porting custom Android environments directly from source.
             </p>
         </div>
     </section>
 
     <section id="hardware" data-reveal>
-        <div class="section-tag">/HARDWARE_MATRIX</div>
-        <h2>02. Environment Specs</h2>
+        <div class="section-tag">/SPEC_MATRIX</div>
+        <h2>02. Hardware</h2>
         <div class="grid">
             <div class="card console-box">
-                <h3 style="margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.9rem;">CachyOS Station</h3>
+                <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-color);">Build Station (CachyOS)</h3>
                 <p class="terminal-text">
                     OS: CachyOS x86_64<br>
-                    Host: Gigabyte Technology H410M S2 V2<br>
-                    Kernel: 6.13.7-2-cachyos<br>
-                    CPU: Intel i3-10100 (8) @ 4.300GHz<br>
-                    GPU: NVIDIA GeForce RTX 3060
+                    CPU: Intel i3-10100 (8) @ 4.3GHz<br>
+                    GPU: RTX 3060<br>
+                    RAM: 16GB
                 </p>
-                <img src="pc.png" alt="PC Specs Matrix" class="spec-img">
+                <img src="pc.png" class="spec-img">
             </div>
             <div class="card console-box">
-                <h3 style="margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.9rem;">Windows 11 Lab</h3>
+                <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-color);">Lab (Win11)</h3>
                 <p class="terminal-text">
-                    OS: Windows 11 Home (25H2)<br>
                     Host: HP Laptop 15-da1xxx<br>
-                    CPU: Intel Core i5-8265U (8) @ 1.80GHz<br>
-                    GPU: Intel UHD Graphics 620
+                    CPU: i5-8265U @ 1.8GHz<br>
+                    RAM: 16GB<br>
+                    Battery: 93%
                 </p>
-                <img src="laptop.png" alt="Laptop Specs Matrix" class="spec-img">
+                <img src="laptop.png" class="spec-img">
             </div>
         </div>
     </section>
 
     <section id="projects" data-reveal>
-        <div class="section-tag">/PORT_PROJECTS</div>
-        <h2>03. Source Port Lab</h2>
+        <div class="section-tag">/PORT_LAB</div>
+        <h2>03. Projects</h2>
         <div class="grid">
             <div class="card">
-                <h3 style="font-size: 1rem;">AxionAOSP</h3>
-                <p class="small-body">Minimal and stable source-based port optimized for high-performance usage on <span class="highlight">larry</span>.</p>
+                <h3 style="font-size: 0.85rem; color: var(--accent-color);">AxionAOSP</h3>
+                <p style="font-size: 0.75rem; color: var(--text-secondary);">Stable source-based port optimized for <span style="color:var(--accent-color)">larry</span>.</p>
             </div>
             <div class="card">
-                <h3 style="font-size: 1rem;">EvolutionX</h3>
-                <p class="small-body">Full source-built port for the Nord series, integrating advanced features with core stability.</p>
-            </div>
-            <div class="card">
-                <h3 style="font-size: 1rem;">LunarisAOSP</h3>
-                <p class="small-body">High-performance clean source optimization for hardware interaction on the <span class="highlight">larry</span> platform.</p>
-            </div>
-            <div class="card">
-                <h3 style="font-size: 1rem;">Project-MistOS</h3>
-                <p class="small-body">Porting unique UI elements directly from source to the Nord CE 3 Lite hardware.</p>
+                <h3 style="font-size: 0.85rem; color: var(--accent-color);">EvolutionX</h3>
+                <p style="font-size: 0.75rem; color: var(--text-secondary);">Source-built port for Nord CE 3 Lite with core stability.</p>
             </div>
         </div>
     </section>
 
     <section id="roadmap" data-reveal>
-        <div class="section-tag">/FUTURE_ROADMAP_2026</div>
-        <h2>04. 2026 Roadmap</h2>
+        <div class="section-tag">/ROADMAP_2026</div>
+        <h2>04. 2026</h2>
         <div class="glass-card">
             <div class="roadmap-track">
-                <h3 style="font-size: 0.9rem;">Q1: Camry Expansion</h3>
-                <p class="small-body">Initiating full device tree generation and source builds for the <span class="highlight">OnePlus Nord CE 4 Lite</span> (camry).</p>
+                <h3 style="font-size: 0.75rem;">Q1: Camry Expansion</h3>
+                <p style="font-size: 0.75rem; color: var(--text-secondary);">Device tree generation for <span style="color:var(--accent-color)">OnePlus Nord CE 4 Lite</span>.</p>
             </div>
             <div class="roadmap-track">
-                <h3 style="font-size: 0.9rem;">Q2: LarryBuildBot Automation</h3>
-                <p class="small-body">Full integration of Telegram-based CI/CD for real-time build notifications and image distribution.</p>
-            </div>
-            <div class="roadmap-track">
-                <h3 style="font-size: 0.9rem;">Q3: Kernel Optimization</h3>
-                <p class="small-body">Optimizing performance-tuned kernels specifically for Snapdragon 695 5G architectures.</p>
+                <h3 style="font-size: 0.75rem;">Q2: Build Bot Automation</h3>
+                <p style="font-size: 0.75rem; color: var(--text-secondary);">Integration of <span style="color:var(--accent-color)">LarryBuildBot</span> for Telegram CI/CD.</p>
             </div>
         </div>
     </section>
 
     <section id="contact" data-reveal>
         <div class="footer-terminal">
-            <h2 style="justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem;">Access the Lab</h2>
-            <div class="link-group">
+            <div class="nav-content">
                 <a href="https://github.com/ViaanLarryROMS" class="gh-btn">ViaanLarryROMS</a>
                 <a href="https://github.com/VIAAN96" class="gh-btn">VIAAN96</a>
             </div>
-            <p style="margin-top: 4rem; font-family: var(--font-mono); opacity: 0.3; letter-spacing: 10px; font-size: 0.65rem;">
+            <p style="margin-top: 4rem; font-family: var(--font-mono); opacity: 0.3; letter-spacing: 8px; font-size: 0.55rem;">
                 VIAAN THAKUR // MASTER_ARCH_v2026
             </p>
         </div>
@@ -252,9 +217,7 @@
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
